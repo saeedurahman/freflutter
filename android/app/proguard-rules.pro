@@ -1,0 +1,9 @@
+-keep class io.flutter.** { *; }
+-keepattributes *Annotation*
+-keepattributes Signature
+-dontwarn javax.annotation.**
+-keep class * extends java.lang.Exception
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-keep class okhttp3.** { *; }
+-keep class okio.** { *; }
