@@ -1,6 +1,6 @@
 abstract final class ApiConstants {
   static const String baseUrl =
-      'https://fre-production-0744.up.railway.app/api/v1';
+      'https://fre-production-5645.up.railway.app/api/v1';
   static const String clientLogin = '/auth/client/login';
   static const String adminLogin = '/auth/admin/login';
   static const String products = '/products';
