@@ -334,7 +334,7 @@ class _HeroImage extends StatelessWidget {
     final child = hasUrl
         ? CachedNetworkImage(
             imageUrl: product.imageUrl!,
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
             width: double.infinity,
             height: 300,
             placeholder: (context, url) => Container(
@@ -381,7 +381,7 @@ class _HeroImage extends StatelessWidget {
     return Hero(
       tag: product.id,
       child: Material(
-        color: AppColors.background,
+        color: AppColors.surface,
         child: child,
       ),
     );

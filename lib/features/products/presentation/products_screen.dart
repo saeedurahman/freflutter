@@ -508,15 +508,15 @@ class _ProductCard extends StatelessWidget {
                 borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(16),
                 ),
-                child: CachedNetworkImage(
-                  imageUrl: product.imageUrl!,
+                child: Container(
                   height: 140,
                   width: double.infinity,
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) => Container(
-                    height: 140,
-                    color: AppColors.shimmerBase,
-                    child: const Center(
+                  color: AppColors.surface,
+                  padding: const EdgeInsets.all(8),
+                  child: CachedNetworkImage(
+                    imageUrl: product.imageUrl!,
+                    fit: BoxFit.contain,
+                    placeholder: (context, url) => const Center(
                       child: SizedBox(
                         width: 26,
                         height: 26,
@@ -526,13 +526,11 @@ class _ProductCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
-                  errorWidget: (context, url, error) => Container(
-                    height: 140,
-                    color: AppColors.shimmerBase,
-                    child: const Icon(
-                      Icons.broken_image_outlined,
-                      color: AppColors.textSecondary,
+                    errorWidget: (context, url, error) => const Center(
+                      child: Icon(
+                        Icons.broken_image_outlined,
+                        color: AppColors.textSecondary,
+                      ),
                     ),
                   ),
                 ),

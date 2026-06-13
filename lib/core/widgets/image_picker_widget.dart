@@ -118,6 +118,7 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
         width: widget.size,
         height: widget.size,
         decoration: BoxDecoration(
+          color: AppColors.surface,
           border: Border.all(
             color: AppColors.primaryGreen.withValues(alpha: 0.5),
             style: BorderStyle.solid,
@@ -130,25 +131,31 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
             if (_selectedFile != null)
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image.file(
-                  _selectedFile!,
-                  width: widget.size,
-                  height: widget.size,
-                  fit: BoxFit.cover,
+                child: Padding(
+                  padding: const EdgeInsets.all(6),
+                  child: Image.file(
+                    _selectedFile!,
+                    width: widget.size,
+                    height: widget.size,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               )
             else if (_currentImageUrl != null)
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: CachedNetworkImage(
-                  imageUrl: _currentImageUrl!,
-                  width: widget.size,
-                  height: widget.size,
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) => const Center(
-                    child: CircularProgressIndicator(),
+                child: Padding(
+                  padding: const EdgeInsets.all(6),
+                  child: CachedNetworkImage(
+                    imageUrl: _currentImageUrl!,
+                    width: widget.size,
+                    height: widget.size,
+                    fit: BoxFit.contain,
+                    placeholder: (context, url) => const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
                   ),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               )
             else

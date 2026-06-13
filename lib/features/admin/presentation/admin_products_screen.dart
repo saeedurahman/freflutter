@@ -300,21 +300,21 @@ class _AdminProductTile extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: product.imageUrl?.isNotEmpty == true
-                    ? CachedNetworkImage(
-                        imageUrl: product.imageUrl!,
+                    ? Container(
                         width: 60,
                         height: 60,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => Container(
-                          width: 60,
-                          height: 60,
-                          color: AppColors.divider,
-                        ),
-                        errorWidget: (context, url, error) => Container(
-                          width: 60,
-                          height: 60,
-                          color: AppColors.divider,
-                          child: const Icon(Icons.broken_image_outlined, color: AppColors.textSecondary),
+                        color: AppColors.surface,
+                        padding: const EdgeInsets.all(4),
+                        child: CachedNetworkImage(
+                          imageUrl: product.imageUrl!,
+                          fit: BoxFit.contain,
+                          placeholder: (context, url) => Container(
+                            color: AppColors.divider,
+                          ),
+                          errorWidget: (context, url, error) => Container(
+                            color: AppColors.divider,
+                            child: const Icon(Icons.broken_image_outlined, color: AppColors.textSecondary),
+                          ),
                         ),
                       )
                     : Container(
